@@ -1,3 +1,4 @@
 .idea/
 .env
-jameson/__pycache__/
+__pycache__/
+
