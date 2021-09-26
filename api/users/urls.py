@@ -1,11 +1,10 @@
 from django.conf.urls import url, include
 from rest_framework import routers
 
-from api.movies.views import MovieViewSet, MovieSaveViewSet
+from api.users.views import UserCreateViewSet
 
 router = routers.DefaultRouter()
-router.register('view', MovieViewSet)
-router.register('save', MovieSaveViewSet)
+router.register('create', UserCreateViewSet)
 
 urlpatterns = [
     url('', include(router.urls)),
