@@ -10,6 +10,10 @@ class Movie(models.Model):
 
     objects = models.Manager()
 
+    def get_reviews(self, args):
+        return Review.objects.filter(movie=self, score__range=(args['score_min'], args['score_max'])) \
+            .order_by(f'{"-" if args["direction"] == "desc" else ""}{args["order"]}')
+
 
 class Review(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
